@@ -2,7 +2,7 @@ let User = require('../model/user');
 const UserModel = mongoose.model('User', User.user);
 
 let signUp = async (req, res, next) => {
-	req.body.password = passwordHash.generate(req.body.password)
+	req.body.password =  passwordHash.generate(req.body.password)
 	let newUser = new UserModel(req.body);
 	try {
 		await newUser.save();
@@ -23,4 +23,3 @@ module.exports = {
 }
 
 
-// commit 1
